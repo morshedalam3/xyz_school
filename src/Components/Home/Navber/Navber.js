@@ -13,9 +13,9 @@ const Navber = () => {
           <li class="nav-link active " Link to="/">Home</li>
           <li class="nav-link active " to="/About">About Us</li>
           <li class="nav-link active  " to="/service">Service</li>
-          <li class="nav-link active " to="/contact">Contact</li>
+          <li class="nav-link active " to="/contact">Contacts</li>
           </Nav>
-          <Button variant="outline-info">GET AN APPOINTMENT</Button>
+          <Button variant="outline-info">GET No </Button>
           </Navbar.Collapse>
         </Navbar>
         
