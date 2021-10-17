@@ -1,0 +1,28 @@
+.email-section{
+    border-top: 1px solid white;
+    padding: 40px;
+}
+
+.button3 {
+    min-width: 200px;
+    min-height: 45px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    background: #252934;
+    color: white;
+    /* background: linear-gradient(90deg, #8f1d9e 0%,#8b0754 100%); */
+    border: none;
+    border-radius: 900px;
+    /* box-shadow: 12px 12px 24px#E41B6F; */
+    transition: all 0.3s ease-in-out 0s;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+}
+.button3:hover{
+    color: #252934;
+    background: white;
+}
