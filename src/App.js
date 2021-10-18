@@ -8,6 +8,7 @@ import {
   Route,
 } from "react-router-dom";
 import Administration from './Components/Adminstration/Administration';
+import Contact from './Components/Contact/Contact';
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
           <Route path="/principle">
             <Administration />
           </Route>
+          <Route path="/contact">
+            <Contact/>
+            </Route>
           <Route exact path="/">
             <MainPage />
           </Route>

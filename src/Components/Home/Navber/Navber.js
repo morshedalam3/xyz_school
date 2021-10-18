@@ -98,7 +98,7 @@ const Navber = () => {
                 {/* <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
-              <Nav.Link className="nav-item" href="#pricing">যোগাযোগ</Nav.Link>
+              <Nav.Link className="nav-item"><Link to="/contact">যোগাযোগ</Link></Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">[[রেজাল্ট অনুসন্ধান]]</Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">[[স্টুডেন্ট আইডি অনুসন্ধান]] </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">[[ভর্তি তথ্য শিক্ষাবর্ষ-২০২১]] </Nav.Link>
