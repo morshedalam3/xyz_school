@@ -1,0 +1,19 @@
+.nav{
+    font-size: 11px;
+    color: black !important;
+}  
+.navbar{
+    color: black !important;
+    
+
+}
+.nav-item:hover{
+    background-color:#DD8702 !important;
+    border-radius: 2px;
+    
+}
+.nav-item{
+    border-bottom: 2px solid black !important;
+    padding-bottom: 5px;
+    margin-left: 1px
+}

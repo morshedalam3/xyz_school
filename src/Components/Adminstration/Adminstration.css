@@ -1,0 +1,8 @@
+.heading{
+    border-bottom: 7px solid rgba(66, 131, 5, 0.733);
+    color:rgb(122, 115, 4)
+}
+.imgbox img {
+        max-width: 100%;
+        height: auto;   
+}

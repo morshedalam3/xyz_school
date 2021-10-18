@@ -18,7 +18,6 @@ const Comment = () => {
 
   return (
     <div className="email-section">
-      <h1 className="text-center text-light">Contact</h1>
       <div style={{ background: "#252934" }} className="d-flex justify-content-center">
         <form style={{ width: '50%' }} className=" contact-form " onSubmit={sendEmail}>
           <input className="form-control" type="hidden" name="contact_number" />

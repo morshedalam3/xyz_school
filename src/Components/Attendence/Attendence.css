@@ -1,0 +1,18 @@
+.top-Header{
+    background-color:  #799A16;
+    color: white;
+    border-radius: 2px;
+    width:100%
+    
+   }
+.attendence{
+    border: 1px solid rgb(209, 201, 201);
+    margin-top: 5px;
+    border-radius: 2px;
+} 
+.side-bar{
+    background-color: #F5D294
+}
+/* .side-bar span{
+    background-color:#BD0505
+} */
