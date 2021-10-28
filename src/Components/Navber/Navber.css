@@ -1,3 +1,14 @@
+.top_header{
+    border-top: 7px solid rgb(255, 0, 0);
+}
+ul li{
+    list-style-type: none;
+    padding:5px;
+}
+.branding{
+    margin-left: 20px;
+}
+
 .nav{
     font-size: 11px;
     color: black !important;
@@ -16,4 +27,8 @@
     border-bottom: 2px solid black !important;
     padding-bottom: 5px;
     margin-left: 1px
+}
+.navLink{
+    text-decoration: none;
+    color: rgb(95, 95, 95) !important;
 }

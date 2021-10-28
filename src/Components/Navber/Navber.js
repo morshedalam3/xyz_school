@@ -3,10 +3,8 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Button, Nav, Navbar, Container, NavDropdown, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import logo from '../../../Assets/images/logo.png';
-import './style.css';
-import Login from '../../Login/Login';
-import Commit from '../../Commit/Commit';
+import Login from '../Login/Login';
+import Commit from '../Commit/Commit';
 import './Navber.css';
 import { faFacebook, faLinkedinIn, faTwitter, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 
@@ -25,6 +23,7 @@ const Navber = () => {
 
   return (
     <>
+    <div className="">
       {
         isClicked ? <Commit /> : ""
       }
@@ -36,9 +35,15 @@ const Navber = () => {
         <button onClick={showComponent} className="btn btn-danger"> মন্তব্য </button>
         <button onClick={show} className="btn btn-danger"> লগ ইন </button>
       </div>
+      </div>
+      <Container>
       <Row>
+       
         <Col md={7}>
-          <img className="branding" src={logo} alt="logo" />
+         <Link className="navLink" to ="/home">
+          {/* <img className="branding img-fluid" src={logo} alt="logo" /> */}
+          <h1>পরমানু কিন্টারগার্ডেন স্কুল </h1>
+          </Link>
         </Col>
         <Col className="d-flex" md={5}>
           <ul className="d-flex p-2">
@@ -61,6 +66,7 @@ const Navber = () => {
           </InputGroup>
         </Col>
       </Row>
+      </Container>
 
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="navbar">
         <Container>
@@ -70,7 +76,7 @@ const Navber = () => {
               <Nav.Link href="#features" className="nav-item">হোম পেজ</Nav.Link>
               <NavDropdown className="nav-item" title="স্কুল প্রশাসন" id="collasible-nav-dropdown">
                 <NavDropdown.Item > <Link to="/principle">প্রধান শিক্ষক</Link></NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">সহকারী শিক্ষকবৃন্দ</NavDropdown.Item>
+                <NavDropdown.Item> <Link to="/admin">সহকারী শিক্ষকবৃন্দ</Link></NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">শ্রেনী শিক্ষকবৃন্দ</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">কর্মকর্তা কর্মচারীবৃন্দ</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">পিটিএ</NavDropdown.Item>
@@ -98,9 +104,9 @@ const Navber = () => {
                 {/* <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
-              <Nav.Link className="nav-item"><Link to="/contact">যোগাযোগ</Link></Nav.Link>
-              <Nav.Link className="nav-item" href="#pricing">[[রেজাল্ট অনুসন্ধান]]</Nav.Link>
-              <Nav.Link className="nav-item" href="#pricing">[[স্টুডেন্ট আইডি অনুসন্ধান]] </Nav.Link>
+              <Nav.Link className="nav-item "><Link className="navLink" to="/contact">যোগাযোগ</Link></Nav.Link>
+              <Nav.Link className="nav-item"><Link className="navLink" to="/student_result"> [[রেজাল্ট অনুসন্ধান]]</Link></Nav.Link>
+              <Nav.Link className="nav-item" ><Link className="navLink" to="/student_id_Query">[[স্টুডেন্ট আইডি অনুসন্ধান]]</Link> </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">[[ভর্তি তথ্য শিক্ষাবর্ষ-২০২১]] </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">শিওর ক্যাশ </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">অনলাইন স্কুল পাঠদান কার্যক্রম </Nav.Link>

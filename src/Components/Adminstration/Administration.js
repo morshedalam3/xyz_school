@@ -11,15 +11,14 @@ const Administration = () => {
                 <Col md={7}>
                     <div>
                         <div className="heading"> <h5>প্রধান শিক্ষক</h5></div>
-                        <div className="d-flex mt-5">
-                            <div className="imgbox">
-                                
-                                <img className="img-fluid" src="https://i.ibb.co/FJ1MLDt/Headmaster-ggbhs.jpg"></img>
-                            </div>
-                            <div>
+                        <Row>
+                            <Col md={2}className="imgbox col-md-5">
+                                <img style={{height:"300px", width:"200px"}} src="https://i.ibb.co/FJ1MLDt/Headmaster-ggbhs.jpg"></img>
+                            </Col>
+                            <Col md={4}>
                             <div className="heading"> <h5>SHAHANA BANU</h5></div>
-                                <p></p></div>
-                        </div>
+                            </Col>
+                        </Row>
                     </div>
                 </Col>
                 <Col md={5}>

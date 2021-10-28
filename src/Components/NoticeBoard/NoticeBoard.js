@@ -1,20 +1,10 @@
 import React from 'react';
-import { Col, Container, Row, Accordion } from 'react-bootstrap';
-import './MainPage.css';
-import Calander from '../Calander/Calander';
-import ImportantLink from '../ImportantLink/ImportantLink';
-import Attendence from '../Attendence/Attendence';
-import MidBody from '../Home/MidBody/MidBody';
-const MainPage = () => {
-  return (
-    <div>
-      <Container>
-        <Row>
-          <Col lg={7} classNameName="mt-4">
-            <MidBody/>
-          </Col>
-           <Col lg={5}>
-           <Accordion defaultActiveKey="0" flush>
+import { Accordion } from 'react-bootstrap';
+import './NoticeBoard.css';
+const NoticeBoard = () => {
+    return (
+        <div>
+             <Accordion defaultActiveKey="0" flush>
   <Accordion.Item eventKey="0">
     <Accordion.Header>নোটিশ বোর্ড</Accordion.Header>
     <Accordion.Body>
@@ -58,15 +48,8 @@ const MainPage = () => {
       </Accordion.Body>
   </Accordion.Item>
 </Accordion>
-  <Calander/>
-  <Attendence/>
-  <ImportantLink/>
-
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default MainPage;
+export default NoticeBoard;

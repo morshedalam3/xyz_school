@@ -1,5 +1,5 @@
 import React from 'react';
-import Navber from '../Home/Navber/Navber';
+import Navber from '../Navber/Navber';
 
 const Header = () => {
     return (
