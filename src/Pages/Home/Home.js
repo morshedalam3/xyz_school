@@ -5,12 +5,12 @@ import MidBody from "../../Components/MidBody/MidBody";
 const Home = () => {
   return (
     <div>
-      <Container>
+      <Container maxWidth="lg">
         <Row>
-          <Col lg={7} classNameName="mt-4">
+          <Col lg={8} classNameName="mt-4">
             <MidBody />
           </Col>
-          <Col lg={5}>
+          <Col lg={4}>
             <HomeRightSide />
           </Col>
         </Row>

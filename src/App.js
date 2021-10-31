@@ -19,7 +19,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // const Sidebar = React.lazy(() => import("./Pages/Sidebar/Sidebar"));
 // const Administration = React.lazy(() => import("./Components/Adminstration/Administration"));
 
-import Administration from './Components/Adminstration/Administration';
 import Contact from './Components/Contact/Contact';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Register from './Components/register/Register';
@@ -30,6 +29,9 @@ import DefaultLayout from "./layout/DefaultLayout";
 import Home from './Pages/Home/Home';
 import StdIdQuery from './Pages/StdIdQuery/StdIdQuery';
 import ResultQuery from "./Pages/ResultQuery/ResultQuery";
+import PhotoGallery from "./Pages/PhotoGallery/PhotoGallery";
+import OthersInformation from "./Pages/OthersInformation/OthersInformation";
+import HeadMaster from "./Pages/Administration/HeadMaster/HeadMaster";
 // const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'))
 function App() {
   return (
@@ -43,7 +45,9 @@ function App() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/student_id_Query" component={StdIdQuery}/>
             <Route exact path="/student_result" component={ResultQuery}/>
-            <Route exact path="/principle" component={Administration} />
+            <Route exact path="/photo_gallery" component={PhotoGallery}/>
+            <Route exact path="/other_info" component={OthersInformation}/>
+            <Route exact path="/principle" component={HeadMaster} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/admin" component={Sidebar} />
             <Route exact path="/register" component={Register} />
