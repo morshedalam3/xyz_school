@@ -2,10 +2,13 @@ import React from 'react';
 import { Col, Container, Row, Accordion } from 'react-bootstrap';
 import Attendence from '../Attendence/Attendence';
 import Calander from '../Calander/Calander';
+import Header from '../Header/Header';
 import ImportantLink from '../ImportantLink/ImportantLink';
 import './Contact.css'
 const Contact = () => {
     return (
+      <>
+      <Header/>
       <Container>
       <Row>
       <Col col={7}>
@@ -79,6 +82,7 @@ const Contact = () => {
     </Col>
     </Row>
     </Container>
+    </>
     );
 };
 

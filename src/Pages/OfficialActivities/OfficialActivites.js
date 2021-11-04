@@ -1,9 +1,11 @@
 import React from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import HomeRightSide from '../../Common/HomeRightSide/HomeRightSide';
+import Header from '../../Components/Header/Header';
 const OfficialActivites = () => {
     return (
         <div>
+          <Header/>
             <h1>official activites</h1>
             <Container maxWidth="lg">
         <Row>

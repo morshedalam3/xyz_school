@@ -10,11 +10,11 @@ import './Attendence.css'
       <Container className='attendence'>
           <div className='top-Header'> <h3>Attendence </h3></div>
    <Row>
-    <Col >
+    {/* <Col >
     <p className='side-bar'>Total Student <span>1000</span></p>
     <p className='side-bar'>Today Present <span>500</span></p>
     <p className='side-bar'>Yesterday Present <span>800</span></p>
-    </Col>
+    </Col> */}
     <Col>
     <h4>Student Attendence</h4>
     <Chart
