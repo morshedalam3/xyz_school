@@ -94,7 +94,7 @@ const Navber = () => {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
               </NavDropdown>
 
-              <Nav.Link className="nav-item" href="#pricing">গ্যালারী</Nav.Link>
+              <Nav.Link className="nav-item"> <Link className="navLink" to="gallery">গ্যালারী</Link></Nav.Link>
               <NavDropdown title="অন্যান্য তথ্য" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">স্কুল ইতিহাস </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">বিগত বছর গুলোর বোর্ড পরীক্কার ফলাফল</NavDropdown.Item>

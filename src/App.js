@@ -36,6 +36,7 @@ import addService from './Dashboard/Addservice/AddService';
 import Reviews from './Dashboard/Reviews/Reviews';
 import AddBlog from "./Dashboard/AddBlog/AddBlog";
 import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
+import Gallery from "./Pages/Gallery/Gallery";
 function App() {
   return (
     <div>
@@ -53,7 +54,8 @@ function App() {
             <Route exact path="/makeAdmin" component={MakeAdmin}/>
             <Route exact path="/student_id_Query" component={StdIdQuery}/>
             <Route exact path="/student_result" component={ResultQuery}/>
-            <Route exact path="/photo_gallery" component={PhotoGallery}/>
+            <Route exact path="/gallery" component={Gallery}/>
+
             <Route exact path="/other_info" component={OthersInformation}/>
             <Route exact path="/principle" component={HeadMaster} />
             <Route exact path="/contact" component={Contact} />

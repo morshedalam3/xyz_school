@@ -80,9 +80,7 @@ const Footer = () => {
                                 <h6 className='py-5'>Quicks Link</h6>
                             </div>
                             <div className="about-us">
-                                <p>Photography for me is not looking, it’s feeling. If you can’t feel what you’re looking at then,
-                                you’re never going to get others to feel anything when
-                                they look at your pictures.</p>
+                                <p>lorem</p>
                             </div>
                             <div className="social-icon">
                                 <p>follow us - </p>
