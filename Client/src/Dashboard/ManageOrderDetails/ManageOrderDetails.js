@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const ManageOrderDetails = (props) => {
       const{name,email,price,paymentId,_id,status}=props.listItems
       const deleteOrder =id=>{
-        fetch(`/deleteOrder/${id}`,{
+        fetch(`https://glacial-tundra-14316.herokuapp.com/deleteOrder/${id}`,{
             method:"DELETE"
         })
         .then(res=>res.json())

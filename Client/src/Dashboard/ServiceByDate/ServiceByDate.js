@@ -1,18 +1,18 @@
-import React from 'react';
-import Footer from '../../Share/Footer/Footer';
-import Navbar from '../../Share/Navbar/Navbar';
-import ServicesList from '../ServicesList/ServicesList';
-import './ServicesByDate.css'
-const ServiceByDate = () => {
-    return (
-       <section>
-            <div className='banner-of-service-by-date'>
+// import React from 'react';
+// import Footer from '../../Share/Footer/Footer';
+// import Navbar from '../../Share/Navbar/Navbar';
+// import ServicesList from '../ServicesList/ServicesList';
+// import './ServicesByDate.css'
+// const ServiceByDate = () => {
+//     return (
+//        <section>
+//             <div className='banner-of-service-by-date'>
           
-           <ServicesList></ServicesList>
-        </div>
+//            <ServicesList></ServicesList>
+//         </div>
       
-       </section>
-    );
-};
+//        </section>
+//     );
+// };
 
-export default ServiceByDate;
+// export default ServiceByDate;

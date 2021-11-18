@@ -1,8 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import Footer from '../../Components/Share/Footer/Footer';
-import Header from '../../Components/Header/Header';
 import './MakeAdmin.css'
 const MakeAdmin = () => {
 
@@ -14,7 +12,6 @@ const MakeAdmin = () => {
             
         }
       
-
         fetch('/makeAdmin', {
             method: 'POST',
             headers: {
@@ -28,14 +25,10 @@ const MakeAdmin = () => {
     };
     return (
         <div>
-            <Header/>
             <div className='makeAdminBanner'>
             <div className="container mt-5">
-                    <h1 className='text-center adService'>Add A New <span className='py-5 text-danger text-center'>Admin</span></h1>
+                    <h1 className=' adService'>Add A New <span className='py-5 text-danger text-center'>Admin</span></h1>
                     <div className="row">
-                        <div className="col-lg-3">
-                            <Link to='/dashboard'><button className="submit"> Back To Dashboard </button></Link>
-                        </div>
                         <div className="col-lg-6">
                             <div className="form-div">
                                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,7 +45,6 @@ const MakeAdmin = () => {
                     
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

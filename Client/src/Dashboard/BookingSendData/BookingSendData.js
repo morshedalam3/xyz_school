@@ -17,7 +17,7 @@ const BookingSendData = ({ date }) => {
 
     const [data, setData] = useState([])
    useEffect(()=>{
-       fetch('/addService')
+       fetch('https://glacial-tundra-14316.herokuapp.com/addService')
        .then(res=>res.json())
        .then(data=>setData(data))
        
@@ -64,7 +64,7 @@ const BookingSendData = ({ date }) => {
           console.log('newInformation',newInformation);
 
 
-         fetch('/addServices',{
+         fetch('https://glacial-tundra-14316.herokuapp.com/addServices',{
              method:"POST",
              headers:{'content-type' : 'application/json'},
              body:JSON.stringify(newInformation)

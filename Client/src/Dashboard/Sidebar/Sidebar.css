@@ -6,7 +6,7 @@
     padding-bottom: 500px;
     border-radius: 4px;
 }
-.side-bar-list ul {
+.side-bar-list.mt-5 ul {
     list-style: none;
     padding: 0;
 }
@@ -17,7 +17,7 @@ span.mr-3 {
     display: inline-block;
     padding: 12px;
 }
-.side-bar-list ul li a {
+.side-bar-list.mt-5 ul li a {
     padding: 0 5px;
     text-decoration: none;
     font-size: 13px;
@@ -25,7 +25,7 @@ span.mr-3 {
     color: #fff;
     transition: .4s;
 }
-.side-bar-list ul li a:hover{
+.side-bar-list.mt-5 ul li a:hover{
    letter-spacing: 1px;
    color: cornsilk;
 }

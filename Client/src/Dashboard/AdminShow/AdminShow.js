@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../../Share/Footer/Footer';
-import Navbar from '../../Share/Navbar/Navbar';
 import AdminDetails from '../AdminDetails/AdminDetails';
-import Sidebar from '../Sidebar/Sidebar';
 import './AdminShow.css'
 const AdminShow = () => {
     const [showAdmin,setShowAdmin]=useState([])
     useEffect(()=>{
      
-        fetch('/admin')
+        fetch('https://glacial-tundra-14316.herokuapp.com/admin')
         .then(res=>res.json())
         .then(data=>setShowAdmin(data))
 
@@ -16,11 +13,7 @@ const AdminShow = () => {
     return (
         <div>
             <div className="banner-admin-show">
-                <Navbar></Navbar>
                 <div className="row">
-                    <div className="col-lg-3">
-                        <Sidebar></Sidebar>
-                    </div>
                     <div className="col-lg-9 py-5">
                         <div className="admin-caption py-5"></div>
                         <div className="table-container">
@@ -46,7 +39,6 @@ const AdminShow = () => {
                     </div>
                 </div>
             </div>
-            <Footer></Footer>
 
         </div>
     );

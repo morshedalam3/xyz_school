@@ -37,6 +37,7 @@ import Reviews from './Dashboard/Reviews/Reviews';
 import AddBlog from "./Dashboard/AddBlog/AddBlog";
 import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
 import Gallery from "./Pages/Gallery/Gallery";
+import SideBar from "./SideNav/sideBar";
 function App() {
   return (
     <div>
@@ -62,8 +63,10 @@ function App() {
             <Route exact path="/admin" component={Sidebar} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/side" component={SideBar} />
             <Route exact path="/500" component={page500} />
             <Route exact path="*" component={page404} />
+
 
           </Switch>
         {/* </Suspense> */}
