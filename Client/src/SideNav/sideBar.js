@@ -12,7 +12,6 @@ const Videos = () => <h1>Content/Videos</h1>;
 const Design = () => <h1>Design</h1>;
 const Content2 = () => <h1>Content2</h1>;
 const Courses2 = () => <h1>Content/Courses 2</h1>;
-// const MakeAdmin = () => <MakeAdmin/>;
 const ShowAdmin = () => <AdminShow/>;
 
 const  SideBar = () => {
@@ -28,7 +27,7 @@ const  SideBar = () => {
           }}
         />
 
-        <div className={`container ${inactive ? "inactive" : "active"}`}>
+        <div className={`container side ${inactive ? "inactive" : "active"}`}>
           {menuItems.map((menu, index) => (
             <>
               <Route key={menu.name} exact={menu.exact} path={menu.to}>
