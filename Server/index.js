@@ -1,64 +1,23 @@
-const express = require('express');
-const mysql = require('mysql');
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+import postRoutes from './Routes/index.js';
+
 const app = express();
+dotenv.config();
 
+app.use(express.json({ limit: '30mb', extended: true }))
+app.use(express.urlencoded({ limit: '30mb', extended: true }))
+app.use(cors());
 
-// app.use(cors());
-app.use(express.json());
+app.use('/posts', postRoutes);
 
-const pool = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    port: 3306,
-    password: '',
-    database: 'schooldb'
-});
-pool.connect(function(err) {
-    if (err) {
-      return console.error('error: ' + err.message);
-    }
-  
-    console.log('Connected to the MySQL server.');
-  });
+const PORT = process.env.PORT|| 8000;
 
-  app.get('/', (req, res) => {
+mongoose.connect('mongodb+srv://school_ui:IjXXcIYS8dJtH0Qd@cluster0.ossg7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
+  .catch((error) => console.log(`${error} did not connect`));
 
-    res.send("hello Server!");
-})
-
-// pool.then(function(p){
-    
-//   return  p.getConnection()
-    
-// }).then(function(){
-
-//  // here the query is executed
-// })
-
-
-app.get('/text', (req, res) => {
-  pool.getConnection((err, connection) => {
-      if(err) throw err
-      console.log('connected as id ' + connection.threadId)
-      connection.query('SELECT * from teachers', (err, rows) => {
-          connection.release() // return the connection to pool
-
-          if (!err) {
-              res.send(rows)
-          } else {
-              console.log(err)
-          }
-
-          // if(err) throw err
-          console.log('The data from beer table are: \n', rows)
-      })
-  })
-})
-
-
-
-
-  
-app.listen(3001,()=>{
-    console.log('listening on http://localhost')
-})
+// mongoose.set('useFindAndModify', false);
