@@ -15,7 +15,8 @@ const HeadTeac = () => {
    
         <div className="heading">
           {" "}
-          <h5>SHAHANA BANU</h5>
+          <h3>SHAHANA BANU</h3>
+               <h5> lorem ipsum dolor sit amet</h5>          
         </div>
     
     </>
