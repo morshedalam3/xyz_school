@@ -4,12 +4,15 @@ import SideMenu, { menuItems } from "./SideNav/SideMenu";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MakeAdmin from "../Dashboard/MakeAdmin/MakeAdmin";
 import AdminShow from "../Dashboard/AdminShow/AdminShow";
+import AddGenTeacher from "../Dashboard/AddGenTeacher/AddGenTeacher";
+import AddImage from "../Dashboard/AddImage/AddImage";
+// import AddGenTeacher from "../Dashboard/AddGenTeacher/AddGenTeacher";
 
 const Dashboard = () => <h1>Dashboard</h1>;
 const Content = () => <h1>Content</h1>;
 const Courses = () => <h1>Content/Courses</h1>;
 const Videos = () => <h1>Content/Videos</h1>;
-const Design = () => <h1>Design</h1>;
+// const Design = () => <h1>Design</h1>;
 const Content2 = () => <h1>Content2</h1>;
 const Courses2 = () => <h1>Content/Courses 2</h1>;
 const ShowAdmin = () => <AdminShow/>;
@@ -54,10 +57,10 @@ const  SideBar = () => {
               <Courses />
             </Route>
             <Route path={"/content/videos"}>
-              <Videos />
+              <AddGenTeacher/>
             </Route>
-            <Route path={"/design"}>
-              <Design />
+            <Route path={"/image"}>
+              <AddImage/>
             </Route>
             <Route exact path={"/content-2"}>
               <Content2 />

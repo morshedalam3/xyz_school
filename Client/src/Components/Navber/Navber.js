@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss, faSearch } from '@fortawesome/free-solid-svg-icons'
@@ -7,8 +7,24 @@ import Login from '../Login/Login';
 import Commit from '../Commit/Commit';
 import './Navber.css';
 import { faFacebook, faLinkedinIn, faTwitter, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
+import useAuth from '../../hooks/useAuth';
 
 const Navber = () => {
+
+  const {user, logout} = useAuth();
+  console.log(user)
+    const[isAdmin,setIsAdmin]=useState(false);
+    console.log(isAdmin);
+    useEffect(()=>{
+        fetch('http://localhost:8000/posts/isAdmin',{
+            method:"POST",
+            headers:{'content-type' : 'application/json'},
+            body:JSON.stringify({ email: user.email })
+        })
+        .then(res=>res.json())
+        .then(data=>setIsAdmin(data))
+    },[])
+
   const [isClicked, setClicked] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const showComponent = () => {
@@ -33,7 +49,7 @@ const Navber = () => {
 
       <div className="top_header d-flex justify-content-end">
         <button onClick={showComponent} className="btn btn-danger"> মন্তব্য </button>
-        <button onClick={show} className="btn btn-danger"> লগ ইন </button>
+        {!user.email?<button onClick={show} className="btn btn-danger"> লগ ইন </button>: <button onClick={logout} className="btn btn-danger">logout</button>}
       </div>
       </div>
       <Container>
@@ -75,9 +91,9 @@ const Navber = () => {
             <Nav className="me-auto nav">
               <Nav.Link href="#features" className="nav-item">হোম পেজ</Nav.Link>
               <NavDropdown className="nav-item" title="স্কুল প্রশাসন" id="collasible-nav-dropdown">
-                <NavDropdown.Item > <Link to="/principle">প্রধান শিক্ষক</Link></NavDropdown.Item>
-                <NavDropdown.Item> <Link to="/admin">সহকারী শিক্ষকবৃন্দ</Link></NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">শ্রেনী শিক্ষকবৃন্দ</NavDropdown.Item>
+                <NavDropdown.Item href="/principle">প্রধান শিক্ষক</NavDropdown.Item>
+                <NavDropdown.Item href="/assisTeacher">সহকারী শিক্ষকবৃন্দ</NavDropdown.Item>
+                <NavDropdown.Item href="/assisTeacher">শ্রেনী শিক্ষকবৃন্দ</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">কর্মকর্তা কর্মচারীবৃন্দ</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">পিটিএ</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">প্রাক্তন প্রধান শিক্ষকবৃন্দ </NavDropdown.Item>
@@ -110,6 +126,7 @@ const Navber = () => {
               <Nav.Link className="nav-item" href="#pricing">[[ভর্তি তথ্য শিক্ষাবর্ষ-২০২১]] </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">শিওর ক্যাশ </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">অনলাইন স্কুল পাঠদান কার্যক্রম </Nav.Link>
+              {isAdmin && <Nav.Link className="nav-item" href="/dashboard">Admin_Panel</Nav.Link>}
             </Nav>
 
           </Navbar.Collapse>

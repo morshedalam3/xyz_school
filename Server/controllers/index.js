@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 
-import PostData from '../model/postsData.js';
+import { AdminData, PostData,TeachersData } from '../model/postsData.js';
 
 const router = express.Router();
 
@@ -27,10 +27,11 @@ export const getPost = async (req, res) => {
     }
 }
 
+//gallery
 export const createPost = async (req, res) => {
-    const { title, message, selectedFile, creator, tags } = req.body;
+    const { category, selectedFile } = req.body;
 
-    const newPostData = new PostData({ title, message, selectedFile, creator, tags })
+    const newPostData = new PostData({ category, selectedFile })
 
     try {
         await newPostData.save();
@@ -40,6 +41,88 @@ export const createPost = async (req, res) => {
         res.status(409).json({ message: error.message });
         console.log(error)
     }
+}
+
+// add teacher
+export const createTeacher = async (req, res) => {
+    const { name,designation, email, phone, selectedFile } = req.body;
+
+    const newTeacherData = new TeachersData({ name, designation, email, phone, selectedFile })
+
+    try {
+        await newTeacherData.save();
+
+        res.status(201).json(newTeacherData );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+        console.log(error)
+    }
+}
+
+// get teachers
+export const getTeachers = async (req, res) => { 
+    try {
+        const teachersData = await TeachersData.find();
+                
+        res.status(200).json(teachersData);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+
+// post admin
+export const createAdmin = async (req, res) => {
+    const { name, email, } = req.body;
+    const newAdminData = new AdminData({ name, email, })
+    try {
+        await newAdminData.save();
+
+        res.status(201).json(newAdminData );
+    } catch (error) {
+        res.status(409).json({ message: error.message });
+        console.log(error)
+    }
+}
+
+//get admin data
+
+export const getAdmin = async (req, res) => { 
+    try {
+        const adminData = await AdminData.find();
+                
+        res.status(200).json(adminData);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+}
+ 
+// export const queryAdmin = async (req, res) => {
+//     try {
+//         const email = req.body.email;
+//         const isAdminData = await AdminData.find({email:email});
+//         res.status(200).send(isAdminData.length > 0);
+//         // console.log(isAdminData.length > 0);
+//     } catch (error) {
+//         res.status(404).json({ message: error.message });
+//     }
+// }
+
+// export const queryAdmin = async (req, res) => {
+//     const email = req.body.email;
+//     const newAdminData = new AdminData({email:email })
+//     console.log(newAdminData)
+//     try {
+//         await newAdminData.save();
+//         res.status(201).send(newAdminData > 0 );
+//     } catch (error) {
+//         res.status(409).json({ message: error.message });
+//         console.log(error)
+//     }
+// }
+export const queryAdmin = async (req, res) => {
+    const email = req.body.email;
+   const newData = await AdminData.find({ email: email })
+            res.send(newData.length > 0);
 }
 
 export const updatePost = async (req, res) => {

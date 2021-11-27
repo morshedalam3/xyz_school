@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
 import logo from "../assets/logo/webscript.png";
 import user from "../assets/user.jpg";
 
@@ -19,10 +20,10 @@ export const menuItems = [
     iconClassName: "bi bi-speedometer2",
     subMenus: [
       { name: "Head Master", to: "/content/courses" },
-      { name: "General Teachers", to: "/content/videos" },
+      { name: "Add General Teachers", to: "/content/videos" },
     ],
   },
-  { name: "Design", to: `/design`, iconClassName: "bi bi-vector-pen" },
+  { name: "Image", to: `/image`, iconClassName: "bi bi-vector-pen" },
   {
     name: "Class Activities",
     exact: true,
@@ -39,6 +40,22 @@ export const menuItems = [
 ];
 
 const SideMenu = (props) => {
+
+  const {user, logout} = useAuth()
+    console.log(user)
+    const[isAdmin,setIsAdmin]=useState(false);
+    useEffect(()=>{
+        fetch('http://localhost:8000/posts/isAdmin',{
+            method:"POST",
+            headers:{'content-type' : 'application/json'},
+            body:JSON.stringify({email:user.email})
+        })
+        .then(res=>res.json())
+        .then(data=>setIsAdmin(data))
+    },[])
+  
+
+
   const [inactive, setInactive] = useState(false);
 
   useEffect(() => {
@@ -123,8 +140,8 @@ const SideMenu = (props) => {
           <img src={user} alt="user" />
         </div>
         <div className="user-info">
-          <h5>Morshed Hasan</h5>
-          <p>morshedhasan@gmail.com</p>
+          <h5>{user.name}</h5>
+          <p>{ user.email }</p>
         </div>
       </div>
     </div>

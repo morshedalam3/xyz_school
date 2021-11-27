@@ -1,20 +1,27 @@
 import mongoose from 'mongoose';
 
 const postSchema = mongoose.Schema({
-    title: String,
-    message: String,
-    creator: String,
+    category: String,
     selectedFile: String,
-    likeCount: {
-        type: Number,
-        default: 0,
-    },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
 })
 
-var PostData = mongoose.model('PostData', postSchema);
+export const PostData = mongoose.model('PostData', postSchema);
 
-export default PostData;
+const postTeacher = mongoose.Schema({
+    name: String,
+    designation: String,
+    email: String,
+    phone: Number,
+    selectedFile: String,
+})
+
+export const TeachersData = mongoose.model('TeachersData', postTeacher);
+
+const postAdmin = mongoose.Schema({
+    name: String,
+    email: String
+})
+
+export const AdminData = mongoose.model('AdminData', postAdmin);
+
+// export default PostData;

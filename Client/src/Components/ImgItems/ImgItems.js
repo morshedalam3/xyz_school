@@ -1,11 +1,11 @@
 import React from 'react';
 import './ImgItems.css'
 const BlogsItem = (props) => {
-    const{imageURL}=props.imagesItems
+    const{selectedFile}=props.imagesItems
     return (
         <div className='col-lg-3'>
             <div className="img-blog">
-                <img src={imageURL} alt=""/>
+                <img src={selectedFile} alt=""/>
             </div>
         </div>
     );

@@ -6,18 +6,18 @@ const MakeAdmin = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
-        const eventData = {
+        const adminData = {
             name: data.name,
              email: data.email
             
         }
       
-        fetch('/makeAdmin', {
+        fetch('http://localhost:8000/posts/makeAdmin', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(eventData)
+            body: JSON.stringify(adminData)
         })
             .then(res => {
                 console.log('res data', res);

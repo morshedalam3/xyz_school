@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Grow, Grid } from '@material-ui/core';
 import HomeRightSide from "../../Common/HomeRightSide/HomeRightSide";
 import Header from "../../Components/Header/Header";
 import MidBody from "../../Components/MidBody/MidBody";
@@ -7,16 +7,18 @@ const Home = () => {
   return (
     <div>
       <Header/>
-      <Container maxWidth="lg">
-        <Row>
-          <Col lg={8} classNameName="mt-4">
+       <Grow in>
+        <Container maxWidth="xl">
+          <Grid container justify="space-between" alignItems="stretch" spacing={4}>
+            <Grid item xs={12} sm={6} md={9}>
             <MidBody />
-          </Col>
-          <Col lg={4}>
+            </Grid>
+            <Grid item xs={12} sm={3}>
             <HomeRightSide />
-          </Col>
-        </Row>
-      </Container>
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
     </div>
   );
 };

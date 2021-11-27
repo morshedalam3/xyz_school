@@ -1,22 +1,24 @@
 import React from 'react';
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Grow, Grid } from '@material-ui/core';
 import HomeRightSide from '../../Common/HomeRightSide/HomeRightSide';
 import Header from '../../Components/Header/Header';
 import ResultQueryForm from '../../Components/ResultQueryForm/ResultQueryForm';
 const ResultQuery = () => {
     return (
         <div>
-          <Header/>
-        <Container>
-    <Row>
-      <Col lg={7} classNameName="mt-4">
-          <ResultQueryForm/>
-      </Col>
-      <Col lg={5}>
-          <HomeRightSide/>
-      </Col>
-    </Row>
-  </Container>
+  <Header/>
+       <Grow in>
+        <Container maxWidth="xl">
+          <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+            <Grid item xs={12} sm={6} md={9}>
+            <ResultQueryForm/>
+            </Grid>
+            <Grid item xs={12} sm={3}>
+            <HomeRightSide />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grow>
     </div>
     );
 };

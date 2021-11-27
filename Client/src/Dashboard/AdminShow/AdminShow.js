@@ -5,7 +5,7 @@ const AdminShow = () => {
     const [showAdmin,setShowAdmin]=useState([])
     useEffect(()=>{
      
-        fetch('https://glacial-tundra-14316.herokuapp.com/admin')
+        fetch('http://localhost:8000/posts/getAdmin')
         .then(res=>res.json())
         .then(data=>setShowAdmin(data))
 

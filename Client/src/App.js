@@ -19,7 +19,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // const Administration = React.lazy(() => import("./Components/Adminstration/Administration"));
 
 import Contact from './Components/Contact/Contact';
-import Sidebar from './Components/Sidebar/Sidebar';
 import Register from './Components/register/Register';
 import Login from './Components/Login/Login';
 import page404 from './Components/page404/Page404';
@@ -31,16 +30,15 @@ import ResultQuery from "./Pages/ResultQuery/ResultQuery";
 import PhotoGallery from "./Pages/PhotoGallery/PhotoGallery";
 import OthersInformation from "./Pages/OthersInformation/OthersInformation";
 import HeadMaster from "./Pages/Administration/HeadMaster/HeadMaster";
-import Dashboard from './Dashboard/Dashboard/Dashboard';
-import addService from './Dashboard/Addservice/AddService';
 import Reviews from './Dashboard/Reviews/Reviews';
-import AddBlog from "./Dashboard/AddBlog/AddBlog";
 import MakeAdmin from "./Dashboard/MakeAdmin/MakeAdmin";
 import Gallery from "./Pages/Gallery/Gallery";
 import SideBar from "./SideNav/sideBar";
+import AssistantHead from "./Pages/Administration/AssistantHead/AssistantHead";
+import AuthProvider from "./context/AuthProvider";
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Router>
         {/* <Header /> */}
         {/* <Suspense fallback={<div>Loading...</div>}> */}
@@ -48,22 +46,18 @@ function App() {
           {/* <Route exact path="/dashboard" component={DefaultLayout} /> */}
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/addService" component={addService} />
             <Route exact path="/reviews" component={Reviews}/>
-            <Route exact path="/addBlog" component={AddBlog}/>
             <Route exact path="/makeAdmin" component={MakeAdmin}/>
             <Route exact path="/student_id_Query" component={StdIdQuery}/>
             <Route exact path="/student_result" component={ResultQuery}/>
             <Route exact path="/gallery" component={Gallery}/>
-
             <Route exact path="/other_info" component={OthersInformation}/>
             <Route exact path="/principle" component={HeadMaster} />
             <Route exact path="/contact" component={Contact} />
-            <Route exact path="/admin" component={Sidebar} />
+            <Route exact path="/assisTeacher" component={AssistantHead} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/side" component={SideBar} />
+            <Route exact path="/dashboard" component={SideBar} />
             <Route exact path="/500" component={page500} />
             <Route exact path="*" component={page404} />
 
@@ -72,7 +66,7 @@ function App() {
         {/* </Suspense> */}
       </Router>
       {/* <FooterTop /> */}
-    </div>
+    </AuthProvider>
   );
 }
 
