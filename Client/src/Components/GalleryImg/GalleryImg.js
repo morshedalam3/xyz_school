@@ -6,7 +6,7 @@ const GalleryImg = () => {
 
     const[images,setImages]=useState([])
      useEffect(()=>{
-        fetch('http://localhost:8000/posts/getImage')
+        fetch('http://localhost:8000/getImage')
         .then(res=>res.json())
         .then(data=>setImages(data))
      },[0])

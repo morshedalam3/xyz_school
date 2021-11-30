@@ -15,7 +15,7 @@ const AddImage = () => {
     
 
   
-    fetch('http://localhost:8000/posts/addImage',{
+    fetch('http://localhost:8000/addImage',{
      method:'POST',
      headers:{
       'content-type' : 'application/json'

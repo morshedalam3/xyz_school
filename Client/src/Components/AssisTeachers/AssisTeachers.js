@@ -7,7 +7,7 @@ const AssisTeachers = () => {
   const [teachers, setTeachers] = useState([])
    
      useEffect(() =>{
-      fetch('http://localhost:8000/posts/getTeachers')
+      fetch('http://localhost:8000/getTeachers')
       .then(response => response.json())
       .then(data => setTeachers(data))
      })

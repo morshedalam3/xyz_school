@@ -19,8 +19,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // const Administration = React.lazy(() => import("./Components/Adminstration/Administration"));
 
 import Contact from './Components/Contact/Contact';
-import Register from './Components/register/Register';
-import Login from './Components/Login/Login';
+import Register from './Components/LoginAuth/Register/Register';
+import Login from './Components/LoginAuth/Login/Login';
 import page404 from './Components/page404/Page404';
 import page500 from './Components/page500/Page500';
 // import DefaultLayout from "./layout/DefaultLayout";
@@ -55,8 +55,8 @@ function App() {
             <Route exact path="/principle" component={HeadMaster} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/assisTeacher" component={AssistantHead} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/register" component={Register} /> */}
+            {/* <Route exact path="/login" component={Login} /> */}
             <Route exact path="/dashboard" component={SideBar} />
             <Route exact path="/500" component={page500} />
             <Route exact path="*" component={page404} />

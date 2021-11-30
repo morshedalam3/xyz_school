@@ -3,27 +3,16 @@ import {Link} from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRss, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { Button, Nav, Navbar, Container, NavDropdown, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
-import Login from '../Login/Login';
+import Login from '../LoginAuth/Login/Login';
 import Commit from '../Commit/Commit';
 import './Navber.css';
 import { faFacebook, faLinkedinIn, faTwitter, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import useAuth from '../../hooks/useAuth';
+// import useAuth from '../../hooks/useAuth';
 
 const Navber = () => {
 
-  const {user, logout} = useAuth();
-  console.log(user)
-    const[isAdmin,setIsAdmin]=useState(false);
-    console.log(isAdmin);
-    useEffect(()=>{
-        fetch('http://localhost:8000/posts/isAdmin',{
-            method:"POST",
-            headers:{'content-type' : 'application/json'},
-            body:JSON.stringify({ email: user.email })
-        })
-        .then(res=>res.json())
-        .then(data=>setIsAdmin(data))
-    },[])
+    const {user, logout, admin} = useAuth();
 
   const [isClicked, setClicked] = useState(false);
   const [isShow, setIsShow] = useState(false);
@@ -44,7 +33,7 @@ const Navber = () => {
         isClicked ? <Commit /> : ""
       }
       {
-        isShow ? <Login /> : ""
+        isShow ? <Login/> : ""
       }
 
       <div className="top_header d-flex justify-content-end">
@@ -126,13 +115,12 @@ const Navber = () => {
               <Nav.Link className="nav-item" href="#pricing">[[ভর্তি তথ্য শিক্ষাবর্ষ-২০২১]] </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">শিওর ক্যাশ </Nav.Link>
               <Nav.Link className="nav-item" href="#pricing">অনলাইন স্কুল পাঠদান কার্যক্রম </Nav.Link>
-              {isAdmin && <Nav.Link className="nav-item" href="/dashboard">Admin_Panel</Nav.Link>}
+              {admin && <Nav.Link className="nav-item" href="/dashboard">Admin_Panel</Nav.Link>}
             </Nav>
 
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
 
     </>
   );

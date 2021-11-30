@@ -1,28 +1,40 @@
-import React from 'react';
+import { Alert, Button, TextField } from '@mui/material';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
 import './MakeAdmin.css'
 const MakeAdmin = () => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => {
-        const adminData = {
-            name: data.name,
-             email: data.email
-            
-        }
-      
-        fetch('http://localhost:8000/posts/makeAdmin', {
-            method: 'POST',
+    const [email, setEmail] = useState('');
+    const [success, setSuccess] = useState(false);
+    const { token } = useAuth();
+
+    const handleOnBlur = e => {
+        setEmail(e.target.value);
+    }
+    const handleAdminSubmit = e => {
+        const user = { email };
+        console.log(user);
+        fetch('http://localhost:8000/users/admin', {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(adminData)
+            body: JSON.stringify(user)
         })
-            .then(res => {
-                console.log('res data', res);
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    setEmail('')
+                    console.log(data);
+                    setSuccess(true);
+                }
             })
-    };
+
+        e.preventDefault()
+    }
     return (
         <div>
             <div className='makeAdminBanner'>
@@ -31,12 +43,17 @@ const MakeAdmin = () => {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="form-div">
-                                <form onSubmit={handleSubmit(onSubmit)}>
-                                    <input type='text' placeholder='Name' name='name'  {...register("name")} />
-                                    <input type='email' placeholder='Your Email' name='email'  {...register("email")} />
-                            
-                                    <button type="submit"> Add Admin </button>
-                                </form>
+                            <form onSubmit={handleAdminSubmit}>
+                <TextField
+                    sx={{ width: '50%' }}
+                    label="Email"
+                    type="email"
+                    onBlur={handleOnBlur}
+                    variant="standard" />
+                <Button type="submit" variant="contained">Make Admin</Button>
+            </form>
+            {success && <Alert severity="success">Made Admin successfully!</Alert>}
+        </div>
                             </div>
 
                         </div>
@@ -45,7 +62,6 @@ const MakeAdmin = () => {
                     
                 </div>
             </div>
-        </div>
     );
 };
 

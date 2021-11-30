@@ -18,7 +18,7 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 import Register from '../register/Register';
 import useAuth from '../../hooks/useAuth';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import initialization from '../../firebase/firebase.init';
+import initialization from '../LoginAuth/Login/Firebase/firebase.init';
 import { useHistory, useLocation } from 'react-router';
 const Login = () => {
     const [newUser,setNewUser] = useState(false);
@@ -193,7 +193,7 @@ const Login = () => {
 
 </div>
 
-    {/* {!newUser?<div className="bg-light d-flex flex-row align-items-center">
+    {!newUser?<div className="bg-light d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
@@ -252,7 +252,7 @@ const Login = () => {
           </CCol>
         </CRow>
       </CContainer>
-    </div>:<Register/>} */}
+    </div>:<Register/>}
     </>
   )
 }

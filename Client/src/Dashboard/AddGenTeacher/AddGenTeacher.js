@@ -18,7 +18,7 @@ const AddGenTeacher = () => {
 
 
 
-        fetch('http://localhost:8000/posts/addTeacher', {
+        fetch('http://localhost:8000/addTeacher', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
