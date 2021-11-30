@@ -141,20 +141,6 @@ async function run() {
       res.json(result);
     });
 
-    //update Status
-    // app.patch('/update/:id',(req,res)=>{
-    //     ordersCollection.updateOne(
-    //       {
-    //         _id:ObjectId(req.params.id)},
-    //         {
-    //           $set: {status:req.body.value}
-    //         }
-    //     )
-    //     .then((result)=>{
-    //       res.send(result.modifiedCount>0)
-    //     })
-
-    //  })
 
     // get Admin
     app.get("/getAdmin", async (req, res) => {
