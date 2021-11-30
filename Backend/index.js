@@ -12,8 +12,8 @@ app.use(cors());
 app.use(express.json());
 
 // connecte
-const uri = `mongodb+srv://school_ui:IjXXcIYS8dJtH0Qd@cluster0.ossg7.mongodb.net/School_db?retryWrites=true&w=majority`;
-// const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q8coo.mongodb.net/furniture?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ossg7.mongodb.net/School_db?retryWrites=true&w=majority`;
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -25,7 +25,6 @@ async function run() {
     const database = client.db("School_db");
     const imagesCollection = database.collection("images");
     const teachersCollection = database.collection("teachers");
-    const newsCollection = database.collection("news");
     const usersCollection = database.collection("users");
     const adminCollection = database.collection("admin");
 
@@ -92,27 +91,8 @@ async function run() {
       res.json(result);
     });
 
-    //update Status
-    app.patch("/update/:id", (req, res) => {
-      ordersCollection
-        .updateOne(
-          {
-            _id: ObjectId(req.params.id),
-          },
-          {
-            $set: { status: req.body.value },
-          }
-        )
-        .then((result) => {
-          res.send(result.modifiedCount > 0);
-        });
-    });
-    //specific order
-    app.get("/orders", async (req, res) => {
-      const cursor = ordersCollection.find({ email: req.query.email });
-      const order = await cursor.toArray();
-      res.send(order);
-    });
+
+   
 
     // Add new Image
     app.post("/addImage", async (req, res) => {
@@ -128,19 +108,9 @@ async function run() {
       res.json(result);
     });
 
-    //Post News
-    app.post("/AddNews", async (req, res) => {
-      const newNews = req.body;
-      const result = await newsCollection.insertOne(newNews);
-      res.json(result);
-    });
+    
 
-    //Submit Orders
-    app.post("/orders", async (req, res) => {
-      const orders = req.body;
-      const result = await ordersCollection.insertOne(orders);
-      res.json(result);
-    });
+   
 
     // makeAdmin
     app.post("/makeAdmin", async (req, res) => {
@@ -149,14 +119,7 @@ async function run() {
       res.json(result);
     });
 
-    //admin verified
-    app.post("/isAdmin", (req, res) => {
-      const email = req.body.email;
-      adminCollection.find({ email: email }).toArray((err, admin) => {
-        res.send(admin.length > 0);
-        console.log(admin);
-      });
-    });
+
     // get Image
     app.get("/getImage", async (req, res) => {
       const coursor = imagesCollection.find({});
@@ -169,50 +132,6 @@ async function run() {
       const coursor = teachersCollection.find({});
       const teachers = await coursor.toArray();
       res.send(teachers);
-    });
-
-    //get News
-    app.get("/news", async (req, res) => {
-      const coursor = newsCollection.find({});
-      const news = await coursor.toArray();
-      res.send(news);
-    });
-
-    //get Orders
-    app.get("/order", async (req, res) => {
-      const coursor = ordersCollection.find({});
-      const order = await coursor.toArray();
-      res.send(order);
-    });
-
-    // get service id
-    app.get("/services/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const service = await serviceCollection.findOne(query);
-      res.json(service);
-    });
-    app.get("/booking/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const service = await serviceCollection.findOne(query);
-      res.json(service);
-    });
-
-    // order delete API
-    app.delete("/deleteOrder/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const result = await ordersCollection.deleteOne(query);
-      res.json(result);
-    });
-
-    //services delete
-    app.delete("/deleteProduct/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const result = await serviceCollection.deleteOne(query);
-      res.json(result);
     });
 
     app.delete("/deleteAdmin/:id", async (req, res) => {
