@@ -6,7 +6,7 @@ const GalleryImg = () => {
 
     const[images,setImages]=useState([])
      useEffect(()=>{
-        fetch('http://localhost:8000/getImage')
+        fetch('https://rocky-bastion-51540.herokuapp.com/getImage')
         .then(res=>res.json())
         .then(data=>setImages(data))
      },[0])

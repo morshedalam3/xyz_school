@@ -7,7 +7,7 @@ const AssisTeachers = () => {
   const [teachers, setTeachers] = useState([])
    
      useEffect(() =>{
-      fetch('http://localhost:8000/getTeachers')
+      fetch('https://rocky-bastion-51540.herokuapp.com/getTeachers')
       .then(response => response.json())
       .then(data => setTeachers(data))
      })

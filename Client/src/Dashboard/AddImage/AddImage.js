@@ -15,7 +15,7 @@ const AddImage = () => {
     
 
   
-    fetch('http://localhost:8000/addImage',{
+    fetch('https://rocky-bastion-51540.herokuapp.com/addImage',{
      method:'POST',
      headers:{
       'content-type' : 'application/json'

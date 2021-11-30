@@ -18,7 +18,7 @@ const AddGenTeacher = () => {
 
 
 
-        fetch('http://localhost:8000/addTeacher', {
+        fetch('https://rocky-bastion-51540.herokuapp.com/addTeacher', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

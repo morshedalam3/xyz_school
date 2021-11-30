@@ -5,7 +5,7 @@ const AdminShow = () => {
     const [showAdmin,setShowAdmin]=useState([])
     useEffect(()=>{
      
-        fetch('http://localhost:8000/getAdmin')
+        fetch('https://rocky-bastion-51540.herokuapp.com/getAdmin')
         .then(res=>res.json())
         .then(data=>setShowAdmin(data))
 

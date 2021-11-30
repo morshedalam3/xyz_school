@@ -84,7 +84,7 @@ const useFirebase =()=>{
     }, [auth])
 
     useEffect(() => {
-        fetch(`http://localhost:8000/users/${user.email}`)
+        fetch(`https://rocky-bastion-51540.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -101,7 +101,7 @@ const useFirebase =()=>{
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('http://localhost:8000/users', {
+        fetch('https://rocky-bastion-51540.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -124,68 +124,4 @@ const useFirebase =()=>{
     }
 }
 
-
-
-
-
-//     const googleProvider = new GoogleAuthProvider();
-//     const auth = getAuth();
-
-//     const signInGoogle =()=>{
-//         return signInWithPopup(auth, googleProvider)
-//     }
-
-   
-
-//     const logout =()=>{
-//         signOut(auth).then(() => {
-//             setUser('');
-            
-//           }).finally(() => setIsLoading(false));
-          
-//     }
-
-//     const newUser =(email,password)=>{
-//         createUserWithEmailAndPassword(auth, email, password)
-//   .then(result=> {
-    
-//     const user = result.user;
-//     console.log(user);
-
-//   })
-//   .catch(error => {
-//     setError(error.message);
-//   });
-//     }
-
-//     const loginUser=(email,password)=>{
-//         signInWithEmailAndPassword(auth ,email, password)
-//         .then(result => {
-//             // Signed in 
-//             const user = result.user;
-//             console.log(user);
-//             // ...
-//           })
-//           .catch(error=> {
-//             setError(error.message)
-//         });
-        
-//     }
-
-
-//     useEffect(()=>{
-//        const unsubscribe= onAuthStateChanged(auth, user => {
-//             if (user) {
-//              setUser(user)
-//             } else {
-//               setUser({})
-//             }
-//             setIsLoading(false)
-
-//           });
-//           return ()=> unsubscribe;
-        
-//     },[])
-//     return {user , signInGoogle , logout ,newUser,loginUser }
-// }
 export default useFirebase;
