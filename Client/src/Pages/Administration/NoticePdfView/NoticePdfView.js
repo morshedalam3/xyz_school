@@ -1,10 +1,9 @@
 import React from 'react';
-import { Container, Grow, Grid } from '@material-ui/core';
 import HomeRightSide from '../../../Common/HomeRightSide/HomeRightSide';
-import AssisTeachers from '../../../Components/AssisTeachers/AssisTeachers';
 import Header from '../../../Components/Header/Header';
-
-const AssistantHead = () => {
+import { Container, Grow, Grid } from '@material-ui/core';
+import DisplayPdf from '../../../Components/displayPdf/DisplayPdf';
+const NoticePdfView = () => {
     return (
         <div>
         <Header/>
@@ -12,7 +11,7 @@ const AssistantHead = () => {
         <Container maxWidth="xl">
           <Grid container justify="space-between" alignItems="stretch" spacing={3}>
             <Grid item xs={12} sm={6} md={9}>
-            <AssisTeachers/>
+            <DisplayPdf/>
             </Grid>
             <Grid item xs={12} sm={3}>
             <HomeRightSide />
@@ -24,4 +23,4 @@ const AssistantHead = () => {
     );
 };
 
-export default AssistantHead;
+export default NoticePdfView;

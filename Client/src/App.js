@@ -1,4 +1,4 @@
-import React, { Suspense,lazy } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@coreui/coreui/dist/css/coreui.min.css";
 // import FooterTop from './Components/Footer/FooterTop/FooterTop';
@@ -19,15 +19,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // const Administration = React.lazy(() => import("./Components/Adminstration/Administration"));
 
 import Contact from './Components/Contact/Contact';
-import Register from './Components/LoginAuth/Register/Register';
-import Login from './Components/LoginAuth/Login/Login';
 import page404 from './Components/page404/Page404';
 import page500 from './Components/page500/Page500';
-// import DefaultLayout from "./layout/DefaultLayout";
 import Home from './Pages/Home/Home';
 import StdIdQuery from './Pages/StdIdQuery/StdIdQuery';
 import ResultQuery from "./Pages/ResultQuery/ResultQuery";
-import PhotoGallery from "./Pages/PhotoGallery/PhotoGallery";
 import OthersInformation from "./Pages/OthersInformation/OthersInformation";
 import HeadMaster from "./Pages/Administration/HeadMaster/HeadMaster";
 import Reviews from './Dashboard/Reviews/Reviews';
@@ -36,6 +32,9 @@ import Gallery from "./Pages/Gallery/Gallery";
 import SideBar from "./SideNav/sideBar";
 import AssistantHead from "./Pages/Administration/AssistantHead/AssistantHead";
 import AuthProvider from "./context/AuthProvider";
+import Dashboard from "./das/Dashboard";
+import NoticePdfView from "./Pages/Administration/NoticePdfView/NoticePdfView";
+import TeacherDetails from "./Pages/Administration/TeacherDetails/TeacherDetails";
 function App() {
   return (
     <AuthProvider>
@@ -55,8 +54,9 @@ function App() {
             <Route exact path="/principle" component={HeadMaster} />
             <Route exact path="/contact" component={Contact} />
             <Route exact path="/assisTeacher" component={AssistantHead} />
-            {/* <Route exact path="/register" component={Register} /> */}
-            {/* <Route exact path="/login" component={Login} /> */}
+            <Route path="/assisTeacher/:_id" component={TeacherDetails}/>
+            <Route exact path="/pdf" component={NoticePdfView} />
+            <Route exact path="/das" component={Dashboard} />
             <Route exact path="/dashboard" component={SideBar} />
             <Route exact path="/500" component={page500} />
             <Route exact path="*" component={page404} />

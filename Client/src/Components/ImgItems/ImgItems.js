@@ -1,7 +1,8 @@
 import React from 'react';
 import './ImgItems.css'
 const BlogsItem = (props) => {
-    const{selectedFile}=props.imagesItems
+    console.log(props)
+    const{selectedFile}=props.imagesItems.selectedFile
     return (
         <div className='col-lg-3'>
             <div className="img-blog">

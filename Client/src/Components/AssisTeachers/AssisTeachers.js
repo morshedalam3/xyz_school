@@ -10,7 +10,7 @@ const AssisTeachers = () => {
       fetch('https://rocky-bastion-51540.herokuapp.com/getTeachers')
       .then(response => response.json())
       .then(data => setTeachers(data))
-     })
+     },[0])
   return (
     !teachers.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>

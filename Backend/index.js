@@ -7,7 +7,8 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 // midleware
-0;
+app.use(express.json({ limit: '30mb', extended: true }))
+app.use(express.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors());
 app.use(express.json());
 
@@ -27,6 +28,7 @@ async function run() {
     const teachersCollection = database.collection("teachers");
     const usersCollection = database.collection("users");
     const adminCollection = database.collection("admin");
+    const pdfCollection = database.collection("pdf");
 
     // is admin
     app.get("/users/:email", async (req, res) => {
@@ -100,6 +102,12 @@ async function run() {
       const result = await imagesCollection.insertOne(newImage);
       res.json(result);
     });
+    
+    app.post("/addPdf", async (req, res) => {
+      const newPdf = req.body;
+      const result = await pdfCollection.insertOne(newPdf);
+      res.json(result);
+    })
 
     //Add new Teacher
     app.post("/addTeacher", async (req, res) => {
@@ -108,9 +116,7 @@ async function run() {
       res.json(result);
     });
 
-    
-
-   
+       
 
     // makeAdmin
     app.post("/makeAdmin", async (req, res) => {
@@ -119,6 +125,12 @@ async function run() {
       res.json(result);
     });
 
+//get pdf
+app.get("/getPdf", async (req, res) =>{
+  const coursor = pdfCollection.find({});
+  const pdf = await coursor.toArray();
+  res.send(pdf)
+});
 
     // get Image
     app.get("/getImage", async (req, res) => {

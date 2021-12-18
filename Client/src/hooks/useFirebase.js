@@ -5,7 +5,7 @@ import initialization from "../Components/LoginAuth/Login/Firebase/firebase.init
 initialization()
 const useFirebase =()=>{
     const [user , setUser] = useState({});
-    const [error , setError] = useState('');
+    // const [error , setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);

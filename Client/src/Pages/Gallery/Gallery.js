@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import HomeRightSide from '../../Common/HomeRightSide/HomeRightSide';
 import GalleryImg from '../../Components/GalleryImg/GalleryImg';
 import Header from '../../Components/Header/Header';

@@ -1,15 +1,12 @@
 import { Alert, Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
 import './MakeAdmin.css'
 const MakeAdmin = () => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    // const { formState: { errors } } = useForm();
     const [email, setEmail] = useState('');
     const [success, setSuccess] = useState(false);
-    const { token } = useAuth();
 
     const handleOnBlur = e => {
         setEmail(e.target.value);

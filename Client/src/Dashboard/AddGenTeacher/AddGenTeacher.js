@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import FileBase from 'react-file-base64';
 
 import './AddGenTeacher.css'
 const AddGenTeacher = () => {
-    const [imageURL, setImageURL] = useState(null);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [postData, setPostData] = useState({selectedFile: ''});
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
         const teacherData = {
             name: data.name,
             designation: data.designation,
             email: data.email,
             phone: data.phone,
-            selectedFile: imageURL
+            selectedFile: postData
         }
 
 
@@ -30,23 +30,6 @@ const AddGenTeacher = () => {
             })
     };
 
-    const handleImageUpload = event => {
-        console.log(event.target.files[0]);
-        const imageData = new FormData()
-        imageData.set('key', '6bf0cd718179276f282785bb56c7be39');
-        imageData.append('image', event.target.files[0])
-
-        axios.post('https://api.imgbb.com/1/upload',
-            imageData
-        )
-            .then(function (response) {
-                setImageURL(response.data.data.display_url);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-    }
     return (
         <div className="main-div">
         <div className='addService'>
@@ -63,7 +46,7 @@ const AddGenTeacher = () => {
                                 <input type='text' placeholder='Designation' name='designation'  {...register("designation")} />
                                 <input type='email' placeholder='Email' name='email'  {...register("email")} />
                                 <input type='number' placeholder='Phone Number' name='phone'  {...register("phone")} />
-                                <input type='file' placeholder='Upload Photo' onChange={handleImageUpload} />
+                                <div className="fileInput"><FileBase type="file" accept="application/pdf, application/vnd.ms-excel" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, selectedFile: base64 })} /></div>
                                 {errors.exampleRequired && <span>This field is required</span>}
 
                                 <button type="submit"> Add Teacher </button>

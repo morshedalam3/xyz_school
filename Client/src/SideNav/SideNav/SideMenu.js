@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import logo from "../assets/logo/webscript.png";
-import user from "../assets/user.jpg";
 
 import MenuItem from "./MenuItem";
 
@@ -41,11 +40,12 @@ export const menuItems = [
 
 const SideMenu = (props) => {
 
-  const {user, logout} = useAuth()
+  const {user, logout} = useAuth();
+  console.log(user)
     console.log(user)
-    const[isAdmin,setIsAdmin]=useState(false);
+    const[isAdmin, setIsAdmin]=useState(false);
     useEffect(()=>{
-        fetch('http://localhost:8000/posts/isAdmin',{
+        fetch('https://rocky-bastion-51540.herokuapp.com/posts/isAdmin',{
             method:"POST",
             headers:{'content-type' : 'application/json'},
             body:JSON.stringify({email:user.email})
@@ -134,13 +134,12 @@ const SideMenu = (props) => {
 
         </ul>
       </div>
-
       <div className="side-menu-footer">
         <div className="avatar">
-          <img src={user} alt="user" />
+          <img src={user.photoURL} alt="user.photoURL" />
         </div>
         <div className="user-info">
-          <h5>{user.name}</h5>
+          <h5>{user.displayName}</h5>
           <p>{ user.email }</p>
         </div>
       </div>

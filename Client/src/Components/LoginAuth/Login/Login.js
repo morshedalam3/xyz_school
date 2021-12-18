@@ -2,7 +2,7 @@ import { Container, Typography, TextField, Button, CircularProgress, Alert } fro
 import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 // import login from '../../../images/login.png'
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import Register from '../Register/Register';
 

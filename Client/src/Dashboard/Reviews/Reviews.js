@@ -9,7 +9,7 @@ import './Review.css'
 
 const Reviews = () => {
     const [imageURL,setImageURL]=useState(null);
-    const { register, handleSubmit, watch, formState: { errors } } =useForm ();
+    const { register, handleSubmit, formState: { errors } } =useForm ();
   const onSubmit = data =>{
     const eventData={
         name:data.name,
